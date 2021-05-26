@@ -2,12 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/posts';
 import PropTypes from 'prop-types';
-import { Home, Navbar, Page404 } from './index';
+import { Home, Navbar, Page404, Login } from './index';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-const Login = () => {
-  return <div>Login</div>;
-};
 const Logout = () => {
   return <div>logout</div>;
 };
