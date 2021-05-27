@@ -4,7 +4,7 @@ import { PostList } from './';
 class Home extends Component {
   render() {
     const { posts } = this.props;
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         <PostList posts={posts} />

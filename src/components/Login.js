@@ -35,9 +35,10 @@ class Login extends Component {
   };
   render() {
     const { error, inProgress, isLoggedIn } = this.props.auth;
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
     // console.log('Props from loggedin', this.props);
     if (isLoggedIn) {
-      return <Redirect to="/" />;
+      return <Redirect to={from} />;
     }
     return (
       <form className="login-form">
