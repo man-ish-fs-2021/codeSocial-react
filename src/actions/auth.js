@@ -37,6 +37,7 @@ export function login(email, password) {
         console.log('data', data);
         if (data.success) {
           // sipatch action to save user
+          localStorage.setItem('token', data.data.token);
           dispatch(loginSuccess(data.data.user));
           return;
         }
