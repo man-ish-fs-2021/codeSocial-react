@@ -9,6 +9,8 @@ import {
   SIGNUP_START,
   SIGNUP_SUCCESS,
   SIGNUP_FAILED,
+  EDIT_USER_SUCCESS,
+  EDIT_USER_FAIL,
 } from './actiontypes';
 import { getFormBody } from '../helpers/utils';
 
@@ -120,5 +122,49 @@ export function signupSuccessful(user) {
 export function clearAuthState() {
   return {
     type: CLEAR_AUTH_STATE,
+  };
+}
+
+export function editUserSuccessful(user) {
+  return {
+    type: EDIT_USER_SUCCESS,
+    user,
+  };
+}
+export function editUserFail(error) {
+  return {
+    type: EDIT_USER_FAIL,
+    error,
+  };
+}
+
+export function editUser(name, password, confirmPassword, userId) {
+  return (dispatch) => {
+    const url = APIUrls.editProfile();
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: getFormBody({
+        id: userId,
+        name,
+        password,
+        confirm_password: confirmPassword,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Edit profile', data);
+        if (data.success) {
+          dispatch(editUserSuccessful(data.data.user));
+          if (data.data.token) {
+            localStorage.setItem('token', data.data.token);
+          }
+          return;
+        }
+        dispatch(editUserFail(data.message));
+      });
   };
 }

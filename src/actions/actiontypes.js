@@ -13,3 +13,7 @@ export const CLEAR_AUTH_STATE = 'CLEAR_AUTH_STATE';
 export const SIGNUP_START = 'SIGNUP_START';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAILED = 'SIGNUP_FAILED';
+
+// edit user
+export const EDIT_USER_SUCCESS = 'EDIT_USER_SUCCESS';
+export const EDIT_USER_FAIL = 'EDIT_USER_FAIL';
