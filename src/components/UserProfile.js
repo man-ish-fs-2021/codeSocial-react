@@ -10,6 +10,15 @@ class UserProfile extends Component {
       this.props.dispatch(fetchUserProfile(match.params.userId));
     }
   }
+  checkUserIsFriend = () => {
+    const { match, friends } = this.props;
+    const { userId } = match.params;
+    const index = friends.map((friend) => friend.to_user._id).indexOf(userId);
+    if (index !== -1) {
+      return true;
+    }
+    return false;
+  };
   render() {
     const {
       match: { params },
@@ -20,6 +29,7 @@ class UserProfile extends Component {
     if (profile.inProgress) {
       return <div>Fetching the data...</div>;
     }
+    const isUserFriend = this.checkUserIsFriend();
     return (
       <div className="settings">
         <div className="img-container">
@@ -37,15 +47,19 @@ class UserProfile extends Component {
           <div className="field-value">{profile.user.email}</div>
         </div>
         <div className="btn-grp">
-          <button className="button save-btn">Add friend</button>
+          {isUserFriend ? (
+            <button className="button save-btn">Remove friend</button>
+          ) : (
+            <button className="button save-btn">Add friend</button>
+          )}
         </div>
       </div>
     );
   }
 }
 
-function mapStateToProps({ profile }) {
-  return { profile };
+function mapStateToProps({ profile, friends }) {
+  return { profile, friends };
 }
 
 export default connect(mapStateToProps)(UserProfile);

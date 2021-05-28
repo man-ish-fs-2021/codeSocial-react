@@ -12,7 +12,7 @@ export function fetchFriends() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('friends data', data);
+        console.log('friends data', data.data.friends);
         dispatch(fetchFriendsSuccess(data.data.friends));
       });
   };
