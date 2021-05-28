@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function FriendListItem(props) {
+  console.log('Friend list prop', props.friend._id);
   return (
-    <div>
-      <Link to={`/users/${props.friend._id}`}>
+    <Link to={`/user/${props.friend._id}`}>
+      <div className="friends-item">
         <div className="friends-img">
           <img
             src="https://image.flaticon.com/icons/svg/2154/2154651.svg"
@@ -12,8 +13,8 @@ function FriendListItem(props) {
           />
         </div>
         <div className="friends-name">{props.friend.name}</div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
 

@@ -1,5 +1,9 @@
 import { APIUrls } from '../helpers/urls';
-import { FETCH_FRIENDS_SUCCESS } from './actiontypes';
+import {
+  ADD_FRIEND,
+  FETCH_FRIENDS_SUCCESS,
+  REMOVE_FRIEND,
+} from './actiontypes';
 
 export function fetchFriends() {
   return (dispatch) => {
@@ -12,7 +16,7 @@ export function fetchFriends() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('friends data', data.data.friends);
+        // console.log('friends data', data);
         dispatch(fetchFriendsSuccess(data.data.friends));
       });
   };
@@ -22,5 +26,19 @@ export function fetchFriendsSuccess(friends) {
   return {
     type: FETCH_FRIENDS_SUCCESS,
     friends,
+  };
+}
+
+export function addFriend(friend) {
+  return {
+    type: ADD_FRIEND,
+    friend,
+  };
+}
+
+export function removeFriend(userId) {
+  return {
+    type: REMOVE_FRIEND,
+    userId,
   };
 }
