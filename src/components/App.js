@@ -2,7 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/posts';
 import PropTypes from 'prop-types';
-import { Home, Navbar, Page404, Login, Signup, Settings } from './index';
+import {
+  Home,
+  Navbar,
+  Page404,
+  Login,
+  Signup,
+  Settings,
+  UserProfile,
+} from './index';
 import {
   BrowserRouter as Router,
   Redirect,
@@ -18,7 +26,7 @@ const PrivateRoute = (privateRouteProps) => {
     <Route
       path={path}
       render={(props) => {
-        console.log(props);
+        // console.log(props);
         return isLoggedIn ? (
           <Component {...props} />
         ) : (
@@ -65,6 +73,11 @@ class App extends React.Component {
               path="/settings"
               isLoggedIn={auth.isLoggedIn}
               component={Settings}
+            />
+            <PrivateRoute
+              path="/user/:userId"
+              isLoggedIn={auth.isLoggedIn}
+              component={UserProfile}
             />
             <Route component={Page404} />
           </Switch>

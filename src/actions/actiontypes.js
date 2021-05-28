@@ -17,3 +17,8 @@ export const SIGNUP_FAILED = 'SIGNUP_FAILED';
 // edit user
 export const EDIT_USER_SUCCESS = 'EDIT_USER_SUCCESS';
 export const EDIT_USER_FAIL = 'EDIT_USER_FAIL';
+
+// user profile
+export const USER_PROFILE_SUCCESS = 'USER_PROFILE_SUCCESS';
+export const USER_PROFILE_FAIL = 'USER_PROFILE_FAIL';
+export const FETCH_USER_PROFILE = 'FETCH_USER_PROFILE';
