@@ -25,6 +25,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.alert {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-top: 15px;
+  align-self: flex-start;
+}
+
+.error-dailog {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.success-dailog {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
 /* NAVBAR */
 .nav {
   display: flex;
@@ -400,4 +420,58 @@ nav .nav-links ul li:hover {
 }
 .settings .field input {
   margin-top: 6px;
+}
+/* HOME AND FRIENDSLIST COMPONENT */
+.home {
+  padding: 20px 50px;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+.home .posts-list {
+  flex-grow: 0.8;
+}
+.friends-list {
+  background: #fff;
+  margin-left: 50px;
+  flex-grow: 0.2;
+  height: 50vh;
+  box-sizing: border-box;
+  margin-top: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow-y: scroll;
+}
+.friends-list .header {
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #424242;
+  padding: 20px;
+}
+.friends-list .friends-img img {
+  height: 40px;
+}
+.no-friends {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.friends-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  color: #616161;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  text-decoration: none;
+}
+.friends-item:hover {
+  cursor: pointer;
+  background-color: #f1f1f1;
+}
+.friends-name {
+  padding: 0 10px;
 }

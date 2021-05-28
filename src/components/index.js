@@ -7,6 +7,8 @@ import Login from './Login';
 import Signup from './Signup';
 import Settings from './Settings';
 import UserProfile from './UserProfile';
+import FriendList from './FriendList';
+import FriendListItem from './FriendListItem';
 export {
   App,
   Settings,
@@ -17,4 +19,6 @@ export {
   Page404,
   Signup,
   UserProfile,
+  FriendList,
+  FriendListItem,
 };
