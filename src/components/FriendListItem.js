@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function FriendListItem(props) {
-  console.log('Friend list prop', props.friend._id);
+  // console.log('Friend list prop', props.friend._id);
   return (
     <Link to={`/user/${props.friend._id}`}>
       <div className="friends-item">

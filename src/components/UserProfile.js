@@ -66,7 +66,7 @@ class UserProfile extends Component {
     };
     const response = await fetch(url, options);
     const data = await response.json();
-    console.log('Friend remove data', data);
+    // console.log('Friend remove data', data);
     if (data.success) {
       this.setState({
         success: true,
@@ -86,8 +86,8 @@ class UserProfile extends Component {
       profile,
     } = this.props;
     const { success, error, successMessage } = this.state;
-    console.log('params', params);
-    console.log('The profile', profile);
+    // console.log('params', params);
+    // console.log('The profile', profile);
     if (profile.inProgress) {
       return <div>Fetching the data...</div>;
     }

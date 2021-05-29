@@ -11,7 +11,7 @@ function FriendList(props) {
 
         {props.friends &&
           props.friends.map((friend) => {
-            console.log('Friend', friend);
+            // console.log('Friend', friend);
             if (friend) {
               return (
                 <FriendListItem friend={friend.to_user} key={friend._id} />

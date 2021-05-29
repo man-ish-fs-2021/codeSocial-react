@@ -1,5 +1,6 @@
-import { UPDATE_POSTS } from './actiontypes';
+import { UPDATE_POSTS, ADD_POST } from './actiontypes';
 import { APIUrls } from '../helpers/urls';
+import { getFormBody } from '../helpers/utils';
 
 export function fetchPosts() {
   return (dispatch) => {
@@ -13,4 +14,33 @@ export function fetchPosts() {
 
 export function updatePosts(posts) {
   return { type: UPDATE_POSTS, posts: posts };
+}
+
+export function addPost(post) {
+  return {
+    type: ADD_POST,
+    post,
+  };
+}
+
+export function createPost(content) {
+  return (dispatch) => {
+    const url = APIUrls.createPost();
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        body: getFormBody({ content }),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('psot data', data);
+        if (data.success) {
+          dispatch(addPost(data.data.post));
+          return;
+        }
+      });
+  };
 }
