@@ -30,7 +30,7 @@ export function createPost(content) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
         body: getFormBody({ content }),
       },
     })
