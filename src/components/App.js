@@ -20,6 +20,7 @@ import {
 import jwtDecode from 'jwt-decode';
 import { authenticateUser } from '../actions/auth';
 import { fetchFriends } from '../actions/friends';
+import MetaTags from 'react-meta-tags';
 
 const PrivateRoute = (privateRouteProps) => {
   const { isLoggedIn, path, component: Component } = privateRouteProps;
@@ -60,6 +61,12 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <MetaTags>
+            <meta
+              http-equiv="Content-Security-Policy"
+              content="upgrade-insecure-requests"
+            />
+          </MetaTags>
           <Navbar />
           <Switch>
             <Route
