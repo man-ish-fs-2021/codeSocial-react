@@ -88,3 +88,6 @@
 .chat-footer button:hover {
   cursor: pointer;
 }
+.new-pull-req {
+  cursor: pointer;
+}
